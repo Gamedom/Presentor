@@ -1,4 +1,117 @@
 body {
-	padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-	padding-bottom: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+  position: relative;
+  padding-top: 40px;
+}
+/* Brand
+-------------------------------------------------- */
+body > .navbar .brand {
+  padding-right: 0;
+  padding-left: 0;
+  margin-left: 20px;
+  float: right;
+  font-weight: bold;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.125);
+  -webkit-transition: all .2s linear;
+  -moz-transition: all .2s linear;
+  transition: all .2s linear;
+}
+body > .navbar .brand:hover {
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.4);
+}
+/* JUmbotron
+-------------------------------------------------- */
+.jumbotron {
+  position: relative;
+  padding: 40px 0;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 0, 0, 0.075);
+  background: #020031;
+  background: -moz-linear-gradient(45deg, #020031 0%, #6d3353 100%);
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #020031), color-stop(100%, #6d3353));
+  background: -webkit-linear-gradient(45deg, #020031 0%, #6d3353 100%);
+  background: -o-linear-gradient(45deg, #020031 0%, #6d3353 100%);
+  background: -ms-linear-gradient(45deg, #020031 0%, #6d3353 100%);
+  background: linear-gradient(45deg, #020031 0%, #6d3353 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#020031', endColorstr='#6d3353', GradientType=1);
+  -webkit-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.2), inset 0 -3px 7px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.2), inset 0 -3px 7px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.2), inset 0 -3px 7px rgba(0, 0, 0, 0.2);
+}
+.jumbotron h1 {
+  font-size: 80px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+.jumbotron p {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.25;
+  margin-bottom: 30px;
+}
+.jumbotron .container {
+  position: relative;
+  z-index: 2;
+}
+.jumbotron:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url(http://twitter.github.com/bootstrap/assets/img/bs-docs-masthead-pattern.png) repeat center center;
+  opacity: .4;
+}
+.subhead {
+  text-align: left;
+  border-bottom: 1px solid #DDD;
+}
+.subhead h1 {
+  font-size: 60px;
+}
+section {
+  padding-top: 30px;
+}
+.thumbnail {
+  margin-bottom: 30px;
+}
+.modal {
+  width: auto;
+}
+.modal-body {
+  max-height: 100%;
+}
+.throbber {
+  position: fixed;
+  width: 20%;
+  left: 38.55%;
+  bottom: 0;
+  background-color: #6E6D71;
+  opacity: .9;
+}
+.throbber .progress {
+  margin-bottom: 0;
+}
+.load {
+  display: block;
+}
+.no-load {
+  display: none;
+}
+.to-top {
+  position: fixed;
+  right: 8.6%;
+  top: 80%;
+  opacity: .5;
+}
+.to-top:hover {
+  opacity: .9;
+}
+.decoy {
+  width: 100%;
+  height: 100%;
 }
