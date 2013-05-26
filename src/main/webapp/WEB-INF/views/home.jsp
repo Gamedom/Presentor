@@ -150,6 +150,6 @@
 			  	</div>
 			</div>
 		</div>
-		<script data-main="" src="assets/js/lib/require.js"></script>
+		<script data-main="assets/js/main" src="assets/js/lib/require.js"></script>
 	</body>
 </html>
