@@ -41,7 +41,7 @@
 		<noscript>
 	    	<style type="text/css">body{display:block !important;}</style>
 	    	<p class="nonjsAlert">
-	    		To access many of the new PayPal features, you'll need to turn on JavaScript and enable cookies. You can do this in your web browser's settings area.
+	    		To access many exciting features of NicSin Games, you'll need to turn on JavaScript and enable cookies. You can do this in your web browser's settings area.
 	    	</p>
 	    </noscript>
 	    <div class="navbar navbar-fixed-top navbar-inverse">
@@ -56,7 +56,7 @@
 				    </a>
 			 
 			      	<%-- Brand Name Outside --%>
-			      	<a class="brand" href="#">NicSin Games</a>
+			      	<a class="brand" href="http://nicsin.com">NicSin</a>
 			 
 			      	<%-- Everything to hide goes inside --%>
 			      	<div class="nav-collapse collapse">
