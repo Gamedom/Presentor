@@ -21,12 +21,9 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.nicsin.gamedom.presentor.model.TwitterAdapterStatus;
 import com.nicsin.gamedom.presentor.model.TwitterMessage;
 import com.nicsin.gamedom.presentor.model.TwitterMessages;
 import com.nicsin.gamedom.presentor.service.TwitterService;
@@ -80,26 +77,6 @@ public class HomeController {
 		model.addAttribute("tweets", twitterMessagesWrapper);
 
 		return "home";
-	}
-
-	@ResponseBody
-	@RequestMapping(value={"/adapter/{state}"})
-	public void state(@PathVariable String state) {
-
-		if ("start".equalsIgnoreCase(state)) {
-			twitterService.startTwitterAdapter();
-		}
-		else if ("stop".equalsIgnoreCase(state)) {
-			twitterService.stopTwitterAdapter();
-		}
-
-	}
-
-	@ResponseBody
-	@RequestMapping(value={"/adapter-running"})
-	public TwitterAdapterStatus isRunning() {
-		TwitterAdapterStatus status = new TwitterAdapterStatus(twitterService.isTwitterAdapterRunning());
-		return status;
 	}
 }
 

@@ -69,10 +69,64 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll'], function( $
 	
 	$gameModal.on('hidden', restoreModal);
 	
+	/* NicSin State Manager */
+	window.NICSIN = {
+			state : (function() {
+				var increment = 20, 
+					offset = 0, 
+					pageType = 'DEFAULT', 	/* Valid Types Are : DEFAULT, PERSONAL & CATEGORY */
+					category = 'action';	/* Valid Types Are : action, adventure, board-game, casino, driving, dress-up, fighting, puzzles, customize, shooting, sports, others, strategy, education, rhythm, jigsaw */
+				
+				return {
+					getIncrement	: function () {
+						return increment;
+					},
+					getOffset		: function () {
+						var cuurentOffset = offset;
+						offset += this.getIncrement();
+						return cuurentOffset;
+					},
+					resetOffset		: function () {
+						offset = 0;
+					},
+					getPageType		: function () {
+						return pageType;
+					},
+					changePageType	: function(change) {
+						if(change === this.getPageType()) {
+							return;
+						}
+						this.resetOffset();
+						this.pageType = pageType;
+					},
+					getCategory		: function () {
+						return category;
+					}
+				}
+			})()
+	};
+	
+	function calculateDataURL() {
+		var state = window.NICSIN.state, pageType = state.getPageType(), category = state.getCategory(), currentOffset = state.getOffset(), limit = state.getIncrement(), dataURL = '';
+		
+		switch (pageType) {
+			case 'PERSONAL':
+				dataURL = 'http://feedmonger.mochimedia.com/feeds/query/?q=recommendation%3A%3E%3D4&partner_id=b6818afc19de2630&limit=' + limit + '&offset=' + currentOffset;
+				break;
+			case 'CATEGORY':
+				dataURL = 'http://feedmonger.mochimedia.com/feeds/query/?q=(recommendation%3A%3E%3D4)%20and%20category%3A' + category + '&partner_id=b6818afc19de2630&limit=' + limit + '&offset=' + currentOffset;
+				break;
+			default:
+				dataURL = 'http://feedmonger.mochimedia.com/feeds/query/?q=recommendation%3A%3E%3D4&partner_id=b6818afc19de2630&limit=' + limit + '&offset=' + currentOffset;
+				break;
+		}
+		return dataURL;
+	}
+	
 	$mainSection.scrollPagination({
 		"method"		: 	"GET",
-		"dataType"		: 	"json",
-		"contentPage"	: 	"/api/games",
+		"dataType"		: 	"jsonp",
+		"contentPage"	: 	calculateDataURL,
 		"scrollTarget"	: 	$(window),
 		"heightOffset"	: 	10,
 		"beforeLoad"	: 	function(obj){
@@ -82,8 +136,16 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll'], function( $
 		},
 		"successCallback"	: 	function(data, obj){
 			var rowhtml = ["", "", "", ""];
-			$.each(data.details, function(index, value){
-				var thumbnail = _thumbnail(value);
+			$.each(data.games, function(index, value){
+				
+				var thumbnail = _thumbnail({
+					thumbnail_url	: value.thumbnail_large_url,
+					name			: value.name,
+					description		: value.description,
+					swf				: value.swf_url,
+					width			: value.width,
+					height			: value.height
+				});
 				
 				var mod = index%4;
 				rowhtml[mod] += thumbnail;

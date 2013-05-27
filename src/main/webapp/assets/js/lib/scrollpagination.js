@@ -53,7 +53,7 @@
 		 obj.loading = true;
 		 $.ajax({
 			  type: opts.method,
-			  url: opts.contentPage,
+			  url: $.isFunction(opts.contentPage) ? opts.contentPage() : opts.contentPage,
 			  data: opts.contentData,
 			  success: function(data){
 			  	obj.loading = false;

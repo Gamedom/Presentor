@@ -81,48 +81,12 @@
 			<section>
 				<div class="row-fluid">
 					<div class="span3">
-						<div class="thumbnail">
-					  		<img data-src="holder.js/300x200" alt="300x200" style="width: 300px; height: 200px;"  
-					  		src="assets/games/running-men/_thumb_200x200.jpg">
-					  		<div class="caption">
-						  		<h3>Running Men</h3>
-						  		<p>Some global Corporation carries out professional development training for their managers. You play as one of these managers, who perform the tasks of training by means of guinea pigs. You've never seen anything like it. At first glance, you might think that it's a usual arcade-puzzle game. But actually, it's a serious psychological drama with unique gameplay and elements of social satire. After playing this game you will forever change your attitude to computer and video games.</p>
-						  		<p><a href="javascript:void(0)" role="button" class="btn btn-primary launch" data-gameurl="http://games.mochiads.com/c/g/running-men/rm_mochi.swf" data-gamename="Running Men" data-width="640" data-height="480">Launch</a></p>
-					  		</div>
-						</div>
 			  		</div>
 			  		<div class="span3">
-			  			<div class="thumbnail">
-					  		<img data-src="holder.js/300x200" alt="300x200" style="width: 300px; height: 200px;"  
-					  		src="assets/games/puzzle-prince/_thumb_200x200.png">
-					  		<div class="caption">
-						  		<h3>Puzzle Prince</h3>
-						  		<p>Do you have what it takes to battle against zombies, monsters and other bad guys in this amazing looking puzzle battler? Taking on the game mechanics of Collapse and combining it with the versus battling of Puzzle Quest, you are set on a journey to save the kingdom with the aid of destroying magical groups of orbs. Only you can control this mage to victory!</p>
-						  		<p><a href="javascript:void(0)" role="button" class="btn btn-primary launch" data-gameurl="http://games.mochiads.com/c/g/puzzle-prince/PP_Mochi_NoLockv46.swf" data-gamename="Puzzle Prince" data-width="700" data-height="580">Launch</a></p>
-					  		</div>
-						</div>
 			  		</div>
 			  		<div class="span3">
-						<div class="thumbnail">
-					  		<img data-src="holder.js/300x200" alt="300x200" style="width: 300px; height: 200px;"  
-					  		src="assets/games/running-men/_thumb_200x200.jpg">
-					  		<div class="caption">
-						  		<h3>Running Men</h3>
-						  		<p>Some global Corporation carries out professional development training for their managers. You play as one of these managers, who perform the tasks of training by means of guinea pigs. You've never seen anything like it. At first glance, you might think that it's a usual arcade-puzzle game. But actually, it's a serious psychological drama with unique gameplay and elements of social satire. After playing this game you will forever change your attitude to computer and video games.</p>
-						  		<p><a href="javascript:void(0)" role="button" class="btn btn-primary launch" data-gameurl="http://games.mochiads.com/c/g/running-men/rm_mochi.swf" data-gamename="Running Men" data-width="640" data-height="480">Launch</a></p>
-					  		</div>
-						</div>
 			  		</div>
 			  		<div class="span3">
-			  			<div class="thumbnail">
-					  		<img data-src="holder.js/300x200" alt="300x200" style="width: 300px; height: 200px;"  
-					  		src="assets/games/puzzle-prince/_thumb_200x200.png">
-					  		<div class="caption">
-						  		<h3>Puzzle Prince</h3>
-						  		<p>Do you have what it takes to battle against zombies, monsters and other bad guys in this amazing looking puzzle battler? Taking on the game mechanics of Collapse and combining it with the versus battling of Puzzle Quest, you are set on a journey to save the kingdom with the aid of destroying magical groups of orbs. Only you can control this mage to victory!</p>
-						  		<p><a href="javascript:void(0)" role="button" class="btn btn-primary launch" data-gameurl="http://games.mochiads.com/c/g/puzzle-prince/PP_Mochi_NoLockv46.swf" data-gamename="Puzzle Prince" data-width="700" data-height="580">Launch</a></p>
-					  		</div>
-						</div>
 			  		</div>
 				</div>
 			</section>
