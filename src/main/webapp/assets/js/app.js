@@ -25,6 +25,7 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll'], function( $
   								+		"</div>"
 								+	"</div>"
 	var _thumbnail 		= 	_.template(thumbnail);
+	var count = 0;
 		
 	var restoreModal = function(){
 		/* 1. Destroy SWF
@@ -138,17 +139,20 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll'], function( $
 			var rowhtml = ["", "", "", ""];
 			$.each(data.games, function(index, value){
 				
-				var thumbnail = _thumbnail({
-					thumbnail_url	: value.thumbnail_large_url,
-					name			: value.name,
-					description		: value.description,
-					swf				: value.swf_url,
-					width			: value.width,
-					height			: value.height
-				});
-				
-				var mod = index%4;
-				rowhtml[mod] += thumbnail;
+				if( value.thumbnail_large_url ) {
+					var thumbnail = _thumbnail({
+						thumbnail_url	: value.thumbnail_large_url,
+						name			: value.name,
+						description		: value.description,
+						swf				: value.swf_url,
+						width			: value.width,
+						height			: value.height
+					});
+					
+					var mod = count%4;
+					count += 1;
+					rowhtml[mod] += thumbnail;
+				}
 			});
 			
 			$('.span3', $mainContent).each(function(index){
