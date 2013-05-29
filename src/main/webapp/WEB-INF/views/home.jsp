@@ -73,7 +73,7 @@
 		<header class="jumbotron subhead" id="overview">
 			<div class="container">
 		    	<h1>NicSin Games</h1>
-		    	<p class="lead">Glide through an immersive world. Break the barriers of time & space</p>
+		    	<p class="lead">Break the barriers of time & space. Glide through an immersive world of games.</p>
 		  	</div>
 		</header>
 		<div class="container" id="mainContent">
