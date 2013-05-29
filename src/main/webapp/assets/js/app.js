@@ -2,19 +2,19 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll'], function( $
 	
 	'use strict';
 	
-	var	MAIN_CONTENT_ID	=	"mainContent",
-		GAME_MODAL_ID	=	"gameModal",
-		GAME_PARENT_ID	= 	"gameEmbed",
-		GAME_LABEL_ID	=	"gameLabel",
-		GAME_OBJECT_ID	=	"gameContent";
+	var	MAIN_CONTENT_ID	=	'mainContent',
+		GAME_MODAL_ID	=	'gameModal',
+		GAME_PARENT_ID	= 	'gameEmbed',
+		GAME_LABEL_ID	=	'gameLabel',
+		GAME_OBJECT_ID	=	'gameContent';
 	
-	var $mainContent	=	$("#" + MAIN_CONTENT_ID),
-		$gameModal		=	$("#" + GAME_MODAL_ID, $mainContent),
-		$gameParent 	=	$("#" + GAME_PARENT_ID, $gameModal),
-		$gameLabel		=	$("#" + GAME_LABEL_ID,	$gameModal),
-		$mainSection	=	$(".row-fluid", $mainContent),
-		$throbber		=	$(".throbber", $mainContent),
-		$toTop			=	$(".to-top", $mainContent);
+	var $mainContent	=	$('#' + MAIN_CONTENT_ID),
+		$gameModal		=	$('#' + GAME_MODAL_ID, $mainContent),
+		$gameParent 	=	$('#' + GAME_PARENT_ID, $gameModal),
+		$gameLabel		=	$('#' + GAME_LABEL_ID,	$gameModal),
+		$mainSection	=	$('.row-fluid', $mainContent),
+		$throbber		=	$('.throbber', $mainContent),
+		$toTop			=	$('.to-top', $mainContent);
 		
 	var thumbnail 		= 			"<div class='thumbnail'>"
   								+		"<img data-src='holder.js/300x200' alt='300x200' style='width: 300px; height: 200px;' src='<%=thumbnail_url%>'>"
@@ -23,7 +23,7 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll'], function( $
 	  							+			"<p><%=description%></p>"
 	  							+			"<p><a href='javascript:void(0)' role='button' class='btn btn-primary launch' data-gameurl='<%=swf%>' data-gamename='<%=name%>' data-width='<%=width%>' data-height='<%=height%>'>Launch</a></p>"
   								+		"</div>"
-								+	"</div>"
+								+	"</div>";
 	var _thumbnail 		= 	_.template(thumbnail);
 	var count = 0;
 		
@@ -39,7 +39,7 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll'], function( $
 	
 	$mainContent.click(function(event){
 		var $src = $(event.target);
-		if( $src.is(".launch") ){
+		if( $src.is('.launch') ){
 			/* 1. Collect Data
 			 * 2. Load Modal Label
 			 * 3. Load Game
@@ -48,20 +48,20 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll'], function( $
 			
 			var gameURL = $src.data('gameurl');
 			var gameName = $src.data('gamename');
-			var gameWidth = $src.data("width");
-			var gameHeight = $src.data("height");
+			var gameWidth = $src.data('width');
+			var gameHeight = $src.data('height');
 			
 			$gameLabel.text(gameName);
-			swfobject.embedSWF(gameURL, GAME_OBJECT_ID, gameWidth, gameHeight, "9.0.0");
+			swfobject.embedSWF(gameURL, GAME_OBJECT_ID, gameWidth, gameHeight, '9.0.0');
 			
 			$gameModal.modal();
-		}else if( $src.is(".destroy") ){
+		}else if( $src.is('.destroy') ){
 			restoreModal();
 		}
 	});
 	
 	$toTop.click(function() {
-		$("html, body").animate({ scrollTop: 0 }, "slow");
+		$('html, body').animate({ scrollTop: 0 }, 'slow');
 		
 		$toTop.hide();
 		//$(this).fadeOut('slow');
@@ -125,18 +125,18 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll'], function( $
 	}
 	
 	$mainSection.scrollPagination({
-		"method"		: 	"GET",
-		"dataType"		: 	"jsonp",
-		"contentPage"	: 	calculateDataURL,
-		"scrollTarget"	: 	$(window),
-		"heightOffset"	: 	10,
-		"beforeLoad"	: 	function(obj){
+		'method'		: 	'GET',
+		'dataType'		: 	'jsonp',
+		'contentPage'	: 	calculateDataURL,
+		'scrollTarget'	: 	$(window),
+		'heightOffset'	: 	10,
+		'beforeLoad'	: 	function(obj){
 			$throbber.show();
-			var objectsRendered = $(".span3", obj).children('[rel!=loaded]');
+			var objectsRendered = $('.span3', obj).children('[rel!=loaded]');
 			return true;
 		},
-		"successCallback"	: 	function(data, obj){
-			var rowhtml = ["", "", "", ""];
+		'successCallback'	: 	function(data, obj){
+			var rowhtml = ['', '', '', ''];
 			$.each(data.games, function(index, value){
 				
 				if( value.thumbnail_large_url ) {
@@ -163,7 +163,7 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll'], function( $
 			$toTop.show();
 			//$toTop.fadeIn('slow');
 		},
-		"errorCallback"		: 	function(jqXHR, textStatus, errorThrown){
+		'errorCallback'		: 	function(jqXHR, textStatus, errorThrown){
 			
 		}
 	});
