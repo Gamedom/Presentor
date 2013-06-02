@@ -79,7 +79,7 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll'], function( $
 	  	return false;
 	});
 	
-	/* SideNav */
+	/* SideNav Initialization */
 	$sideNav.on('click', function (event) {
 		var state = window.NICSIN.state, $target = $(event.target), $li = $target.parent(), category = $target.data('category');
 		if( typeof category === 'undefined' || category === '' ) {
@@ -179,6 +179,33 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll'], function( $
 		return dataURL;
 	}
 	
+	/* Load Data On Page Load */
+	$.ajax({
+		url			: calculateDataURL(),
+		type		: 'GET',
+		dataType	: 'jsonp',
+		success		: function(data, obj) {
+			responseHandler(data, obj);
+			
+			/* Register Scroll After First Load */
+			$mainSection.scrollPagination({
+				'method'		: 	'GET',
+				'dataType'		: 	'jsonp',
+				'contentPage'	: 	calculateDataURL,
+				'scrollTarget'	: 	$(window),
+				'heightOffset'	: 	10,
+				'beforeLoad'	: 	beforeResponse,
+				'successCallback'	: 	responseHandler,
+				'errorCallback'		: 	function(jqXHR, textStatus, errorThrown){
+					
+				}
+			});
+		},
+		beforeSend 	: function () {
+			beforeResponse();
+		}
+	});
+	
 	function responseHandler (data, obj) {
 		var rowhtml = ['', '', '', ''], state = window.NICSIN.state;
 		$.each(data.games, function(index, value){
@@ -205,7 +232,6 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll'], function( $
 		
 		$throbber.hide();
 		$toTop.show();
-		//$toTop.fadeIn('slow');
 	};
 	
 	function beforeResponse (obj) {
@@ -213,17 +239,4 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll'], function( $
 		var objectsRendered = $('.span3', obj).children('[rel!=loaded]');
 		return true;
 	};
-	
-	$mainSection.scrollPagination({
-		'method'		: 	'GET',
-		'dataType'		: 	'jsonp',
-		'contentPage'	: 	calculateDataURL,
-		'scrollTarget'	: 	$(window),
-		'heightOffset'	: 	10,
-		'beforeLoad'	: 	beforeResponse,
-		'successCallback'	: 	responseHandler,
-		'errorCallback'		: 	function(jqXHR, textStatus, errorThrown){
-			
-		}
-	});
 });
