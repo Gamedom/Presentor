@@ -63,7 +63,6 @@
 			      	<div class="nav-collapse collapse">
 				      	<ul class="nav">
 					    	<li class="active"><a href="#">Home</a></li>
-					      	<li><a href="#">Browse</a></li>
 					      	<li><a href="#">Contact us</a></li>
 					    </ul>
 			     	</div>
