@@ -78,7 +78,7 @@
 		  	</div>
 		</header>
 		<div class="bs-docs-sidebar">
-	    	<ul class="nav nav-list bs-docs-sidenav affix-top">
+	    	<ul class="nav nav-list bs-docs-sidenav">
 	        	<li class="active"><a href="#all"><i class="icon-chevron-right"></i> Explore All</a></li>
 	        	<li><a href="#action" data-category="action"><i class="icon-chevron-right"></i> Action</a></li>
 	          	<li><a href="#adventure" data-category="adventure"><i class="icon-chevron-right"></i> Adventure</a></li>

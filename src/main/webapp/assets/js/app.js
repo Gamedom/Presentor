@@ -36,7 +36,7 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll'], function( $
     var $window = $(window);
 	/* Side Bar */
     setTimeout(function () {
-      $('.bs-docs-sidenav').affix({
+      $('.bs-docs-sidebar').affix({
           offset: {
               top: function () { return $window.width() <= 980 ? 290 : 210; }
             }
