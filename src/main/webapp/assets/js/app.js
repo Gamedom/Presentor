@@ -33,9 +33,14 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll'], function( $
       e.preventDefault();
     });
     
+    var $window = $(window);
 	/* Side Bar */
     setTimeout(function () {
-      $('.bs-docs-sidenav').affix();
+      $('.bs-docs-sidenav').affix({
+          offset: {
+              top: function () { return $window.width() <= 980 ? 290 : 210; }
+            }
+          });
     }, 100);
 		
 	var restoreModal = function(){

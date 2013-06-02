@@ -77,6 +77,27 @@
 		    	<p class="lead">Break the barriers of time & space. Glide through an immersive world of games.</p>
 		  	</div>
 		</header>
+		<div class="bs-docs-sidebar">
+	    	<ul class="nav nav-list bs-docs-sidenav affix-top">
+	        	<li class="active"><a href="#all"><i class="icon-chevron-right"></i> Explore All</a></li>
+	        	<li><a href="#action" data-category="action"><i class="icon-chevron-right"></i> Action</a></li>
+	          	<li><a href="#adventure" data-category="adventure"><i class="icon-chevron-right"></i> Adventure</a></li>
+	          	<li><a href="#board-game" data-category="board-game"><i class="icon-chevron-right"></i> Board Game</a></li>
+	          	<li><a href="#casino" data-category="casino"><i class="icon-chevron-right"></i> Casino</a></li>
+	          	<li><a href="#driving" data-category="driving"><i class="icon-chevron-right"></i> Driving</a></li>
+	          	<li><a href="#dress-up" data-category="dress-up"><i class="icon-chevron-right"></i> Dress Up</a></li>
+	          	<li><a href="#fighting" data-category="fighting"><i class="icon-chevron-right"></i> Fighting</a></li>
+	          	<li><a href="#puzzles" data-category="puzzles"><i class="icon-chevron-right"></i> Puzzles</a></li>
+	          	<li><a href="#customize" data-category="customize"><i class="icon-chevron-right"></i> Pimp my / Customize</a></li>
+	          	<li><a href="#shooting" data-category="shooting"><i class="icon-chevron-right"></i> Shooting</a></li>
+	          	<li><a href="#sports" data-category="sports"><i class="icon-chevron-right"></i> Sports</a></li>
+	          	<li><a href="#other" data-category="other"><i class="icon-chevron-right"></i> Others</a></li>
+	          	<li><a href="#strategy" data-category="strategy"><i class="icon-chevron-right"></i> Strategy</a></li>
+	          	<li><a href="#education" data-category="education"><i class="icon-chevron-right"></i> Education</a></li>
+	          	<li><a href="#rhythm" data-category="rhythm"><i class="icon-chevron-right"></i> Rhythm</a></li>
+	          	<li><a href="#jigsaw" data-category="jigsaw"><i class="icon-chevron-right"></i> Jigsaw / Slider Puzzles</a></li>
+	    	</ul>
+	    </div>
 		<div class="container" id="mainContent">
 			<a class="btn to-top btn-inverse no-load" href="#bodyId"><i class="icon-chevron-up icon-white"></i></a>
 			<section>
