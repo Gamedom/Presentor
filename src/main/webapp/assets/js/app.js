@@ -29,7 +29,7 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll'], function( $
 	var _thumbnail 		= 	_.template(thumbnail);
 	
 	// Disable certain links in docs
-    $('section [href^=#]').click(function (e) {
+    $('.navbar [href^=#], .bs-docs-sidebar [href^=#]').click(function (e) {
       e.preventDefault();
     });
     
