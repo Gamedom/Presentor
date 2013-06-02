@@ -6,7 +6,8 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll'], function( $
 		GAME_MODAL_ID	=	'gameModal',
 		GAME_PARENT_ID	= 	'gameEmbed',
 		GAME_LABEL_ID	=	'gameLabel',
-		GAME_OBJECT_ID	=	'gameContent';
+		GAME_OBJECT_ID	=	'gameContent',
+		SIDE_NAV		=	'.bs-docs-sidenav';
 	
 	var $mainContent	=	$('#' + MAIN_CONTENT_ID),
 		$gameModal		=	$('#' + GAME_MODAL_ID, $mainContent),
@@ -14,7 +15,8 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll'], function( $
 		$gameLabel		=	$('#' + GAME_LABEL_ID,	$gameModal),
 		$mainSection	=	$('.row-fluid', $mainContent),
 		$throbber		=	$('.throbber', $mainContent),
-		$toTop			=	$('.to-top', $mainContent);
+		$toTop			=	$('.to-top', $mainContent),
+		$sideNav		=	$(SIDE_NAV);
 		
 	var thumbnail 		= 			"<div class='thumbnail'>"
   								+		"<img data-src='holder.js/300x200' alt='300x200' style='width: 300px; height: 200px;' src='<%=thumbnail_url%>'>"
@@ -25,7 +27,16 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll'], function( $
   								+		"</div>"
 								+	"</div>";
 	var _thumbnail 		= 	_.template(thumbnail);
-	var count = 0;
+	
+	// Disable certain links in docs
+    $('section [href^=#]').click(function (e) {
+      e.preventDefault();
+    });
+    
+	/* Side Bar */
+    setTimeout(function () {
+      $('.bs-docs-sidenav').affix();
+    }, 100);
 		
 	var restoreModal = function(){
 		/* 1. Destroy SWF
@@ -68,6 +79,37 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll'], function( $
 	  	return false;
 	});
 	
+	/* SideNav */
+	$sideNav.on('click', function (event) {
+		var state = window.NICSIN.state, $target = $(event.target), $li = $target.parent(), category = $target.data('category');
+		if( typeof category === 'undefined' || category === '' ) {
+			state.changePageType('DEFAULT');
+		} else {
+			state.changePageType('CATEGORY');
+			state.setCategory( category );
+			state.resetCount();
+		}
+		
+		
+		
+		$li.siblings().removeClass('active');
+		$li.addClass('active');
+		
+		$('.span3', $mainContent).each(function(index){
+			$(this).empty();
+		});
+		
+		$.ajax({
+			url			: calculateDataURL(),
+			type		: 'GET',
+			dataType	: 'jsonp',
+			success		: responseHandler,
+			beforeSend 	: function () {
+				beforeResponse();
+			}
+		});
+	});
+	
 	$gameModal.on('hidden', restoreModal);
 	
 	/* NicSin State Manager */
@@ -76,7 +118,8 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll'], function( $
 				var increment = 20, 
 					offset = 0, 
 					pageType = 'DEFAULT', 	/* Valid Types Are : DEFAULT, PERSONAL & CATEGORY */
-					category = 'action';	/* Valid Types Are : action, adventure, board-game, casino, driving, dress-up, fighting, puzzles, customize, shooting, sports, others, strategy, education, rhythm, jigsaw */
+					category = 'action',	/* Valid Types Are : action, adventure, board-game, casino, driving, dress-up, fighting, puzzles, customize, shooting, sports, others, strategy, education, rhythm, jigsaw */
+					count = 0;
 				
 				return {
 					getIncrement	: function () {
@@ -94,16 +137,28 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll'], function( $
 						return pageType;
 					},
 					changePageType	: function(change) {
+						this.resetOffset();
 						if(change === this.getPageType()) {
 							return;
 						}
-						this.resetOffset();
-						this.pageType = pageType;
+						pageType = change;
 					},
 					getCategory		: function () {
 						return category;
+					},
+					setCategory		: function (categoryType) {
+						category = categoryType;
+					},
+					getCount		: function () {
+						return count;
+					},
+					incrementCount		: function () {
+						count += 1;
+					},
+					resetCount			: function () {
+						count = 0;
 					}
-				}
+				};
 			})()
 	};
 	
@@ -124,45 +179,49 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll'], function( $
 		return dataURL;
 	}
 	
+	function responseHandler (data, obj) {
+		var rowhtml = ['', '', '', ''], state = window.NICSIN.state;
+		$.each(data.games, function(index, value){
+			
+			if( value.thumbnail_large_url ) {
+				var thumbnail = _thumbnail({
+					thumbnail_url	: value.thumbnail_large_url,
+					name			: value.name,
+					description		: value.description,
+					swf				: value.swf_url,
+					width			: value.width,
+					height			: value.height
+				});
+				
+				var mod = state.getCount() % 4;
+				state.incrementCount();
+				rowhtml[mod] += thumbnail;
+			}
+		});
+		
+		$('.span3', $mainContent).each(function(index){
+			$(this).append(rowhtml[index]);
+		});
+		
+		$throbber.hide();
+		$toTop.show();
+		//$toTop.fadeIn('slow');
+	};
+	
+	function beforeResponse (obj) {
+		$throbber.show();
+		var objectsRendered = $('.span3', obj).children('[rel!=loaded]');
+		return true;
+	};
+	
 	$mainSection.scrollPagination({
 		'method'		: 	'GET',
 		'dataType'		: 	'jsonp',
 		'contentPage'	: 	calculateDataURL,
 		'scrollTarget'	: 	$(window),
 		'heightOffset'	: 	10,
-		'beforeLoad'	: 	function(obj){
-			$throbber.show();
-			var objectsRendered = $('.span3', obj).children('[rel!=loaded]');
-			return true;
-		},
-		'successCallback'	: 	function(data, obj){
-			var rowhtml = ['', '', '', ''];
-			$.each(data.games, function(index, value){
-				
-				if( value.thumbnail_large_url ) {
-					var thumbnail = _thumbnail({
-						thumbnail_url	: value.thumbnail_large_url,
-						name			: value.name,
-						description		: value.description,
-						swf				: value.swf_url,
-						width			: value.width,
-						height			: value.height
-					});
-					
-					var mod = count%4;
-					count += 1;
-					rowhtml[mod] += thumbnail;
-				}
-			});
-			
-			$('.span3', $mainContent).each(function(index){
-				$(this).append(rowhtml[index]);
-			});
-			
-			$throbber.hide();
-			$toTop.show();
-			//$toTop.fadeIn('slow');
-		},
+		'beforeLoad'	: 	beforeResponse,
+		'successCallback'	: 	responseHandler,
 		'errorCallback'		: 	function(jqXHR, textStatus, errorThrown){
 			
 		}

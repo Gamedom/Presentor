@@ -44,6 +44,7 @@
 	    		To access many exciting features of NicSin Games, you'll need to turn on JavaScript and enable cookies. You can do this in your web browser's settings area.
 	    	</p>
 	    </noscript>
+	    <%@ include file="/WEB-INF/views/includes/analytics.jsp"%>
 	    <div class="navbar navbar-fixed-top navbar-inverse">
 			<div class="navbar-inner">
 			    <div class="container">
