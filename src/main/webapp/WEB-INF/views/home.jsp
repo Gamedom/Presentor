@@ -9,6 +9,13 @@
 		<meta name="application-name" content="NicSin Games" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
+		<meta property="og:title" content="NicSin Games">
+		<meta property="og:description" content="Something tells me these people aren't packing up their U-Haul to move.">
+		<meta property="og:url" content="http://games.nicsin.com">
+		<!-- <meta property="og:image" content="https://upworthy-production.s3.amazonaws.com/nugget/51993b2c598bdb000e001c3f/Screen_Shot_2013-05-19_at_4.32.58_PM.png">  -->
+		<meta property="og:site_name" content="NicSin Games">
+		<meta property="og:type" content="website">
+		
 		<link rel="shortcut icon" href="<c:url value='/assets/ico/favicon.ico'/>">
 		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/1.0.0.M5/ico/apple-touch-icon-144-precomposed.png">
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/1.0.0.M5/ico/apple-touch-icon-114-precomposed.png">
@@ -135,6 +142,9 @@
 			  	</div>
 			</div>
 		</div>
+		<div class="bs-docs-sidebar" id="camera">
+	    	
+	    </div>
 		<script data-main="assets/js/main" src="assets/js/lib/require.js"></script>
 	</body>
 </html>

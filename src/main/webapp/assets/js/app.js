@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll'], function( $, _, swfObject){
+define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll', 'webcam'], function( $, _, swfObject){
 	
 	'use strict';
 	
@@ -244,4 +244,16 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll'], function( $
 		var objectsRendered = $('.span3', obj).children('[rel!=loaded]');
 		return true;
 	};
+	
+	$("#camera").webcam({
+		width: 320,
+		height: 240,
+		mode: "callback",
+		swffile: "http://www.xarg.org/download/jscam_canvas_only.swf",
+		onTick: function() {},
+		onSave: function() {},
+		onCapture: function() {},
+		debug: function() {},
+		onLoad: function() {}
+	});
 });

@@ -20,23 +20,27 @@
 			
 			'bootstrap'			: 'lib/bootstrap-2.3.2',
 			'swfObject'			: 'lib/swfobject-2.2',
-			'scroll'			: 'lib/scrollpagination'
+			'scroll'			: 'lib/scrollpagination',
+			'webcam'			: 'lib/jquery.webcam.min'
 		},
 		
 		// Script-load timeout removed for Modem-Speed
 		waitSeconds: 0,
 		useStrict: true,
 		shim: {
-			"underscore": {
+			'underscore': {
 				exports: function() {
 					return window._.noConflict();
 				}
 			},
-			"bootstrap": {
-				deps: ["jquery"]
+			'bootstrap': {
+				deps: ['jquery']
 			},
-			"scroll": {
-				deps: ["jquery"]
+			'scroll': {
+				deps: ['jquery']
+			},
+			'webcam': {
+				deps: ['jquery']
 			}
 		}
 	};

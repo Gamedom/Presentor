@@ -123,7 +123,7 @@ section {
 -------------------------------------------------- */
 .bs-docs-sidebar {
   width: 270px;
-  margin-left: 30px;
+  //margin-left: 30px;
   
   -webkit-transition: all 1s ease;
      -moz-transition: all 1s ease;
