@@ -21,7 +21,8 @@
 			'bootstrap'			: 'lib/bootstrap-2.3.2',
 			'swfObject'			: 'lib/swfobject-2.2',
 			'scroll'			: 'lib/scrollpagination',
-			'webcam'			: 'lib/jquery.webcam.min'
+			'webcam'			: 'lib/jquery.webcam.min',
+			'draggable'			: 'lib/jquery-ui-1.10.3.custom.min'
 		},
 		
 		// Script-load timeout removed for Modem-Speed
@@ -40,6 +41,9 @@
 				deps: ['jquery']
 			},
 			'webcam': {
+				deps: ['jquery']
+			},
+			'draggable': {
 				deps: ['jquery']
 			}
 		}

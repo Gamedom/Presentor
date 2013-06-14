@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll', 'webcam'], function( $, _, swfObject){
+define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll', 'webcam', 'draggable'], function( $, _, swfObject){
 	
 	'use strict';
 	
@@ -29,14 +29,14 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll', 'webcam'], f
 	var _thumbnail 		= 	_.template(thumbnail);
 	
 	// Disable certain links in docs
-    $('.navbar [href^=#], .bs-docs-sidebar [href^=#]').click(function (e) {
+    $('.navbar [href^=#], .category-sidebar [href^=#]').click(function (e) {
       e.preventDefault();
     });
     
     var $window = $(window);
 	/* Side Bar */
     setTimeout(function () {
-      $('.bs-docs-sidebar').affix({
+      $('.category-sidebar, .stealth-sidebar').affix({
           offset: {
               top: function () { return $window.width() <= 980 ? 290 : 210; }
             }
@@ -245,7 +245,7 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll', 'webcam'], f
 		return true;
 	};
 	
-	$("#camera").webcam({
+	/*$("#camera").webcam({
 		width: 320,
 		height: 240,
 		mode: "callback",
@@ -255,5 +255,7 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll', 'webcam'], f
 		onCapture: function() {},
 		debug: function() {},
 		onLoad: function() {}
-	});
+	});*/
+	
+	//$('.stealth-sidebar').draggable({ cancel: '#XwebcamXobjectX' });
 });

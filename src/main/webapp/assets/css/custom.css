@@ -121,9 +121,8 @@ section {
 
 /* Sidenav for Docs
 -------------------------------------------------- */
-.bs-docs-sidebar {
+.category-sidebar {
   width: 270px;
-  //margin-left: 30px;
   
   -webkit-transition: all 1s ease;
      -moz-transition: all 1s ease;
@@ -186,17 +185,47 @@ section {
   background-image: url(../img/glyphicons-halflings-white.png);
   opacity: 1;
 }
-.bs-docs-sidebar.affix {
+.category-sidebar.affix {
   top: 40px;
 }
-.bs-docs-sidebar.affix-top {
+.category-sidebar.affix-top {
   position: absolute;
   left: 0;
 }
-.bs-docs-sidebar.affix-bottom {
+.category-sidebar.affix-bottom {
   position: absolute;
   top: auto;
   bottom: 270px;
+}
+
+.stealth-sidebar {
+  width: 321px;
+  
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+}
+.stealth-sidenav {
+	width: 100%;
+	margin: 30px 0 0;
+	border: 6px solid #08c;
+	
+	-webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+    
+    margin-right: -11px;
+    height: 240px;
+}
+.stealth-sidebar.affix {
+  top: 40px;
+  right: 11px;
+}
+.stealth-sidebar.affix-top {
+  position: absolute;
+  right: 11px;
 }
 
 /* Responsive
@@ -205,13 +234,13 @@ section {
 /* Desktop
 ------------------------- */
 @media (min-width: 1611px) and (max-width: 1830px) {
-  .bs-docs-sidebar {
+  .category-sidebar {
     width: 166px;
   }
 }
 
 @media (max-width: 1610px) {
-  .bs-docs-sidebar {
+  .category-sidebar {
     margin-left: 0;
     width:166px;
     
@@ -227,17 +256,17 @@ section {
   	-ms-transform: rotate(90deg);
   	transform: rotate(90deg);
   }
-  /* .bs-docs-sidebar li:not(.active) {
+  /* .category-sidebar li:not(.active) {
 	display: none;
   } */
-  .bs-docs-sidebar:hover {
+  .category-sidebar:hover {
   	-webkit-transform: rotate(0);
   	-moz-transform: rotate(0);
   	-o-transform: rotate(0);
   	-ms-transform: rotate(0);
   	transform: rotate(0);
   }
-  /* .bs-docs-sidebar li:hover {
+  /* .category-sidebar li:hover {
   	display: block;
   } */
 }

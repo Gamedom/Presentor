@@ -83,7 +83,7 @@
 		    	<p class="lead">Break the barriers of time & space. Glide through an immersive world of games.</p>
 		  	</div>
 		</header>
-		<div class="bs-docs-sidebar">
+		<div class="category-sidebar">
 	    	<ul class="nav nav-list bs-docs-sidenav">
 	        	<li class="active"><a href="#all"><i class="icon-chevron-right"></i> Explore All</a></li>
 	        	<li><a href="#action" data-category="action"><i class="icon-chevron-right"></i> Action</a></li>
@@ -103,6 +103,10 @@
 	          	<li><a href="#rhythm" data-category="rhythm"><i class="icon-chevron-right"></i> Rhythm</a></li>
 	          	<li><a href="#jigsaw" data-category="jigsaw"><i class="icon-chevron-right"></i> Jigsaw / Slider Puzzles</a></li>
 	    	</ul>
+	    </div>
+	    <div class="stealth-sidebar">
+	    	<div class="stealth-sidenav" id="camera">
+	    	</div>
 	    </div>
 		<div class="container" id="mainContent">
 			<a class="btn to-top btn-inverse no-load" href="#bodyId"><i class="icon-chevron-up icon-white"></i></a>
@@ -142,9 +146,6 @@
 			  	</div>
 			</div>
 		</div>
-		<div class="bs-docs-sidebar" id="camera">
-	    	
-	    </div>
 		<script data-main="assets/js/main" src="assets/js/lib/require.js"></script>
 	</body>
 </html>
