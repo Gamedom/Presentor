@@ -7,7 +7,7 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll', 'webcam', 'd
 		GAME_PARENT_ID	= 	'gameEmbed',
 		GAME_LABEL_ID	=	'gameLabel',
 		GAME_OBJECT_ID	=	'gameContent',
-		SIDE_NAV		=	'.bs-docs-sidenav';
+		SIDE_NAV		=	'.category-sidenav';
 	
 	var $mainContent	=	$('#' + MAIN_CONTENT_ID),
 		$gameModal		=	$('#' + GAME_MODAL_ID, $mainContent),

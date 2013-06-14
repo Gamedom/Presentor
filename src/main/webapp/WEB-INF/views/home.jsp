@@ -84,7 +84,7 @@
 		  	</div>
 		</header>
 		<div class="category-sidebar">
-	    	<ul class="nav nav-list bs-docs-sidenav">
+	    	<ul class="nav nav-list category-sidenav">
 	        	<li class="active"><a href="#all"><i class="icon-chevron-right"></i> Explore All</a></li>
 	        	<li><a href="#action" data-category="action"><i class="icon-chevron-right"></i> Action</a></li>
 	          	<li><a href="#adventure" data-category="adventure"><i class="icon-chevron-right"></i> Adventure</a></li>
