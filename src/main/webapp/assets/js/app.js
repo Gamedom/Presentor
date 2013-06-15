@@ -32,16 +32,6 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll', 'webcam', 'd
     $('.navbar [href^=#], .category-sidebar [href^=#]').click(function (e) {
       e.preventDefault();
     });
-    
-    var $window = $(window);
-	/* Side Bar */
-    setTimeout(function () {
-      $('.category-sidebar, .stealth-sidebar').affix({
-          offset: {
-              top: function () { return $window.width() <= 980 ? 290 : 210; }
-            }
-          });
-    }, 100);
 		
 	var restoreModal = function(){
 		/* 1. Destroy SWF

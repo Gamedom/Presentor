@@ -83,7 +83,7 @@
 		    	<p class="lead">Break the barriers of time & space. Glide through an immersive world of games.</p>
 		  	</div>
 		</header>
-		<div class="category-sidebar">
+		<div class="category-sidebar" data-spy="affix" data-offset-top="200">
 	    	<ul class="nav nav-list category-sidenav">
 	        	<li class="active"><a href="#all"><i class="icon-chevron-right"></i> Explore All</a></li>
 	        	<li><a href="#action" data-category="action"><i class="icon-chevron-right"></i> Action</a></li>
@@ -104,10 +104,10 @@
 	          	<li><a href="#jigsaw" data-category="jigsaw"><i class="icon-chevron-right"></i> Jigsaw / Slider Puzzles</a></li>
 	    	</ul>
 	    </div>
-	    <div class="stealth-sidebar">
+	  <!--   <div class="stealth-sidebar">
 	    	<div class="stealth-sidenav" id="camera">
 	    	</div>
-	    </div>
+	    </div> -->
 		<div class="container" id="mainContent">
 			<a class="btn to-top btn-inverse no-load" href="#bodyId"><i class="icon-chevron-up icon-white"></i></a>
 			<section>
