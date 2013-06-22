@@ -11,10 +11,6 @@
 	</appender>
 
 	<!-- Loggers -->
-	<logger name="org.springframework.integration">
-		<level value="info" />
-	</logger>
-
 	<logger name="com.nicsin.gamedom.presentor">
 		<level value="info" />
 	</logger>
