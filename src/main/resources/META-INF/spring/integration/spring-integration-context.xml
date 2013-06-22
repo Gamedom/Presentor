@@ -12,36 +12,4 @@
 
 	<context:component-scan base-package="com.nicsin.gamedom.presentor" />
 
-	<!-- See also: http://static.springsource.org/spring-integration/reference/htmlsingle/#twitter -->
-	<int-twitter:search-inbound-channel-adapter id="twitter"
-		query="springsource OR springintegration OR cloudfoundry OR grails OR rabbitmq OR groovylang OR springframework"
-		channel="twitterChannel" auto-startup="false">
-		<int:poller fixed-rate="20000" max-messages-per-poll="3" />
-	</int-twitter:search-inbound-channel-adapter>
-
-	<!-- See also: http://static.springsource.org/spring-integration/reference/htmlsingle/#service-activator
-		http://www.eaipatterns.com/MessagingAdapter.html -->
-	<int:service-activator id="twitterServiceActivator" ref="twitterService"
-		input-channel="twitterChannel"
-		method="addTwitterMessages" />
-
-	<bean id="twitterService" class="com.nicsin.gamedom.presentor.service.impl.DefaultTwitterService" />
-
-	<int:logging-channel-adapter id="logger" level="INFO"
-		expression="'Id:' + payload.id + '; Date:' + payload.createdAt + '; FromUser: ' + payload.fromUser" />
-
-	<!-- See also: http://static.springsource.org/spring-integration/reference/htmlsingle/#channel
-		http://www.eaipatterns.com/MessageChannel.html -->
-	<int:channel id="twitterChannel">
-		<int:interceptors>
-			<int:wire-tap channel="logger" />
-		</int:interceptors>
-	</int:channel>
-
-	<int:channel id="controlBusChannel" />
-
-	<!-- See also: http://static.springsource.org/spring-integration/reference/htmlsingle/#control-bus
-		http://www.eaipatterns.com/ControlBus.html -->
-	<int:control-bus id="controlBus" input-channel="controlBusChannel" />
-
 </beans>
