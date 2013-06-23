@@ -23,7 +23,7 @@ define(['jquery', 'underscore', 'swfObject', 'bootstrap', 'scroll', 'webcam', 'd
   								+		"<div class='caption'>"
 	  							+			"<h3><%=name%></h3>"
 	  							+			"<p><%=description%></p>"
-	  							+			"<p><a href='javascript:void(0)' role='button' class='btn btn-primary launch' data-gameurl='<%=swf%>' data-gamename='<%=name%>' data-width='<%=width%>' data-height='<%=height%>'>Launch</a></p>"
+	  							+			"<p><a href='javascript:void(0)' role='button' class='btn btn-success launch' data-gameurl='<%=swf%>' data-gamename='<%=name%>' data-width='<%=width%>' data-height='<%=height%>'>Launch</a></p>"
   								+		"</div>"
 								+	"</div>";
 	var _thumbnail 		= 	_.template(thumbnail);

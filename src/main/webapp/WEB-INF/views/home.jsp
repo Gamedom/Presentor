@@ -16,6 +16,8 @@
 		<meta property="og:site_name" content="NicSin Games">
 		<meta property="og:type" content="website">
 		
+		<meta property="fb:app_id" content="518082984893443" />
+		
 		<link rel="shortcut icon" href="<c:url value='/assets/ico/favicon.ico'/>">
 		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/1.0.0.M5/ico/apple-touch-icon-144-precomposed.png">
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/1.0.0.M5/ico/apple-touch-icon-114-precomposed.png">
@@ -51,6 +53,7 @@
 	    		To access many exciting features of NicSin Games, you'll need to turn on JavaScript and enable cookies. You can do this in your web browser's settings area.
 	    	</p>
 	    </noscript>
+		
 	    <%@ include file="/WEB-INF/views/includes/analytics.jsp"%>
 	    <div class="navbar navbar-fixed-top navbar-inverse">
 			<div class="navbar-inner">
@@ -80,6 +83,7 @@
 		<header class="jumbotron subhead" id="overview">
 			<div class="container">
 		    	<h1>NicSin Games</h1>
+		    	<%@ include file="/WEB-INF/views/includes/like.jsp"%>
 		    	<p class="lead">Break the barriers of time & space. Glide through an immersive world of games.</p>
 		  	</div>
 		</header>
@@ -109,6 +113,7 @@
 	    	</div>
 	    </div> -->
 		<div class="container" id="mainContent">
+		<!-- Place this tag where you want the +1 button to render. -->
 			<a class="btn to-top btn-inverse no-load" href="#bodyId"><i class="icon-chevron-up icon-white"></i></a>
 			<section>
 				<div class="row-fluid">
